@@ -31,8 +31,11 @@ def get_predictions():
 def on_click():
     global index
     index = slider.get()-1
+    # Updates the image
     image_label.config(image=images[index])
+    # Updates the output vector
     prediction_values.config(text=predictions_values[index])
+    # Updates the final prediction
     prediction_label.config(text=predictions[index])
 
 # Create a windo of 1080 by 720 pixels
@@ -43,29 +46,28 @@ images = get_images()
 # Get the respective predictions from the model
 predictions_values, predictions = get_predictions()
 
-# Create a slider for selecting an index
 label1 = tk.Label(text="Use the slider to select an index")
 label1.pack()
 label1.config(font=("Courier", 16))
-
+# Create a slider for selecting an index
 slider = tk.Scale(window, from_=1, to=1000, length=1000, orient='horizontal')
 slider.pack()
-
+# Create a button for selecting the index
 button = tk.Button(window, text="Get index", command=on_click)
 button.pack()
 button.config(font=("Courier", 12))
-
+# Display the input image
 image_label = tk.Label(window, image=images[0])
 image_label.pack(expand='yes')
 
 label2 = tk.Label(window, text="The model's prediction:")
 label2.pack()
 label2.config(font=("Courier", 20))
-
+# Display the output vector
 prediction_values = tk.Label(window, text=predictions_values[0])
 prediction_values.pack(expand='yes')
 prediction_values.config(font=("Courier", 14))
-
+# Display the predicted value
 prediction_label = tk.Label(window, text=predictions[0])
 prediction_label.pack(expand='yes')
 prediction_label.config(font=("Courier", 44))
