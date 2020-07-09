@@ -11,7 +11,6 @@ model = tf.keras.models.load_model('model/')
 
 # Show images with predictions
 index = 0
-
 # Turn all images into Images and then into PhotoImages and put these in an array
 def get_images():
     arr = []
@@ -70,6 +69,5 @@ prediction_values.config(font=("Courier", 14))
 prediction_label = tk.Label(window, text=predictions[0])
 prediction_label.pack(expand='yes')
 prediction_label.config(font=("Courier", 44))
-    
 
 window.mainloop()
